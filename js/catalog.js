@@ -5,6 +5,12 @@
 // Set up an empty cart for use on this page.
 state.cart = new Cart([]);
 
+let contentsOfCart = document.getElementById('contentsOfCart');
+
+let ulCartPreview = document.createElement('ul');
+
+contentsOfCart.appendChild(ul);
+
 // On screen load, we call this method to put all of the product options
 // (the things in the state.allProducts array) into the drop down list.
 function populateForm() {
@@ -54,7 +60,15 @@ function addSelectedItemToCart() {
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  const itemSelected = document.getElementById('items').value
+  const quantitySelected = document.getElementById('quantity').value;
   // TODO: Add a new element to the cartContents div with that information
+  let cartPreview = document.querySelector('#contentsOfCart ul');
+
+  let li = document.createElement('li');
+  li.textContent = `${itemSelected}; Quantity ${quantitySelected}`;
+  cartPreview.appendChild(li);
+
 }
 
 // Set up the "submit" event listener on the form.

@@ -9,15 +9,18 @@ const state = {
 // Cart constructor.
 const Cart = function(items) {
   // this.items is an array of CartItem instances.
-  this.items = []items;
+  this.items = CartItem;
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  let product = new CartItem()// TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  let addProduct = new CartItem(product, quantity);
+  this.items.push(addProduct);// TODO: Fill in this instance method to create a new CartItem and add it to this.items
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  // DONE: Fill in this instance method to save the contents of the cart to localStorage
+  let dataForCart = JSON.stringify(this.items);
+  localStorage.setItem('cartItemsData', cartData);
 };
 
 Cart.prototype.removeItem = function(item) {
